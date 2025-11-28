@@ -5,111 +5,105 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BaLoch TikTok Downloader</title>
 <style>
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: url('https://i.postimg.cc/w36xpMj0/background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    overflow-x: hidden;
-    color: #fff;
-    text-align: center;
-  }
+body {
+  margin:0;
+  font-family:Arial, sans-serif;
+  background: url('https://i.postimg.cc/w36xpMj0/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  text-align:center;
+  color:#fff;
+  overflow-x:hidden;
+}
 
-  /* Fire heading container */
-  .fire-heading-container {
-    position: relative;
-    display: inline-block;
-    margin-top: 50px;
-  }
+/* Fire Animated Heading Container */
+.fire-heading-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 50px;
+}
 
-  h1 {
-    font-size: 48px;
-    font-weight: bold;
-    color: #ff4500;
-    text-shadow: 0 0 8px #ff4500, 0 0 15px #ff8c00;
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-  }
+/* Heading */
+h1 {
+  font-size:36px;
+  font-weight:bold;
+  color:#ff4500;
+  text-shadow:0 0 8px #ff4500,0 0 15px #ff8c00;
+  letter-spacing:2px;
+  position: relative;
+  z-index:1;
+  display: inline-block;
+}
 
-  #fireCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    pointer-events: none;
-    z-index: 0;
-  }
+/* Fire canvas */
+#fireCanvas {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:150px;
+  pointer-events:none;
+  z-index:0;
+}
 
-  /* Profile Section */
-  .profile-container {
-    width: 100%;
-    margin-top: 40px;
-  }
+/* Profile Section */
+.profile-container {
+  width:100%;
+  margin-top:40px;
+}
+.profile-slide {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+.profile-photo {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:3px solid #06b6d4;
+  object-fit:cover;
+  box-shadow:0 0 12px rgba(6,182,212,0.6);
+  transition: transform 0.3s ease;
+}
+.profile-photo:hover{ transform: scale(1.05);}
+.profile-info{ text-align:left;}
+.profile-contact a{ color:#06b6d4; text-decoration:none; font-weight:500;}
+.profile-contact a:hover{ color:#00f0ff;}
 
-  .profile-slide {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    justify-content: center;
-  }
+/* Rainbow Name */
+#rainbowName {
+  font-weight:bold;
+  font-size:24px;
+  display:inline-block;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,#ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#8b00ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: rainbowFlicker 2s infinite linear;
+}
+@keyframes rainbowFlicker{
+  0%,100%{ filter:brightness(1); text-shadow:0 0 6px #fff; }
+  50%{ filter:brightness(1.3); text-shadow:0 0 10px #fff; }
+}
 
-  .profile-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #06b6d4;
-    object-fit: cover;
-    box-shadow: 0 0 12px rgba(6,182,212,0.6);
-    transition: transform 0.3s ease;
-  }
-
-  .profile-photo:hover { transform: scale(1.05); }
-
-  .profile-info { text-align:left; }
-  .profile-contact a { color: #06b6d4; text-decoration: none; font-weight: 500; }
-  .profile-contact a:hover { color: #00f0ff; }
-
-  /* Rainbow Animated Profile Name */
-  #rainbowName {
-    font-weight: bold;
-    font-size: 28px;
-    display: inline-block;
-    position: relative;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbowFlicker 2s infinite linear;
-  }
-
-  @keyframes rainbowFlicker {
-    0%,100% { filter: brightness(1); text-shadow: 0 0 6px #fff; }
-    50% { filter: brightness(1.4); text-shadow: 0 0 12px #fff; }
-  }
-
-  /* Download Section */
-  .download-container { margin-top: 30px; }
-  input { width: 80%; padding: 12px; margin: 10px 0; border-radius: 8px; border: none; }
-  button { padding: 12px 20px; border:none; background:#06b6d4; color:white; cursor:pointer; border-radius:5px; margin:5px; font-weight:bold; }
-  button:hover { background:#00f0ff; }
-  #status { color:#fff; margin-top:10px; font-weight:bold; }
+/* Download Section */
+.download-container { margin-top:30px;}
+input{ width:80%; padding:12px; margin:10px 0; border-radius:8px; border:none;}
+button{ padding:12px 20px; border:none; background:#06b6d4; color:white; cursor:pointer; border-radius:5px; margin:5px; font-weight:bold;}
+button:hover{ background:#00f0ff;}
+#status{ margin-top:10px; font-weight:bold; color:#fff;}
 </style>
 </head>
 <body>
 
-<!-- Fire Animated Heading -->
 <div class="fire-heading-container">
   <canvas id="fireCanvas"></canvas>
   <h1>BaLoch TikTok Downloader</h1>
 </div>
 
-<!-- Profile Section -->
 <div class="profile-container">
   <div class="profile-slide">
-    <img src="https://i.postimg.cc/z3JXTj4k/profile.jpg" alt="Ubaidullah Baloch" class="profile-photo"/>
+    <img src="https://i.postimg.cc/z3JXTj4k/profile.jpg" class="profile-photo"/>
     <div class="profile-info">
       <div id="rainbowName">❤✨⃝⃪𝐔𝐁𝐀𝐈𝐃𝐔𝐋𝐋𝐀𝐇⟶𝐁𝐀𝐋𝐎𝐂𝐇 ❤</div>
       <div class="profile-contact">
@@ -119,7 +113,6 @@
   </div>
 </div>
 
-<!-- Download Section -->
 <div class="download-container">
   <input type="text" id="ttlink" placeholder="Paste TikTok video or audio link here">
   <br>
@@ -129,78 +122,132 @@
 </div>
 
 <script>
-// Fire animation canvas
-const canvas = document.getElementById('fireCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
+// Fire Particle Animation per letter (Design/CSS Logic)
+const canvas=document.getElementById('fireCanvas');
+const ctx=canvas.getContext('2d');
+canvas.width=canvas.offsetWidth;
+canvas.height=canvas.offsetHeight;
 
-let particles = [];
-function Particle(x, y){
-  this.x = x + (Math.random()*10-5);
-  this.y = y;
-  this.size = Math.random()*4+2;
-  this.speedX = Math.random()*2-1;
-  this.speedY = Math.random()*-2-1.5;
-  this.color = 'rgba(255,'+Math.floor(Math.random()*150)+',0,1)';
-  this.life = 0;
-  this.maxLife = Math.random()*30+30;
+let particles=[];
+const h1=document.querySelector('h1');
+const letters=[];
+const letterParticles=[];
+
+// Split letters
+[...h1.textContent].forEach((char,i)=>{
+  letters.push({char, x:0, y:0});
+  letterParticles[i]=[];
+});
+
+function updateLetterPositions(){
+  const rects = h1.getClientRects();
+  let offsetX = h1.offsetLeft;
+  let offsetY = 0;
+  let x=offsetX;
+  let y=h1.offsetTop;
+  const spacing=20; // approximate
+  letters.forEach((l,i)=>{
+    l.x = x;
+    l.y = y + h1.offsetHeight;
+    x+=spacing;
+  });
 }
-Particle.prototype.update = function(){
-  this.x += this.speedX;
-  this.y += this.speedY;
-  this.life++;
+updateLetterPositions();
+window.addEventListener('resize',updateLetterPositions);
+
+// Particle class
+function Particle(x,y){
+  this.x=x+Math.random()*8-4;
+  this.y=y;
+  this.size=Math.random()*4+2;
+  this.speedX=Math.random()*1.2-0.6;
+  this.speedY=Math.random()*-2-1;
+  this.color=`rgba(255,${Math.floor(Math.random()*150)},0,1)`;
+  this.life=0;
+  this.maxLife=Math.random()*40+30;
 }
-Particle.prototype.draw = function(){
+Particle.prototype.update=function(){
+  this.x+=this.speedX; this.y+=this.speedY; this.life++;
+}
+Particle.prototype.draw=function(){
   ctx.beginPath();
   ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
   ctx.fillStyle=this.color;
   ctx.fill();
 }
 
-function handleParticles(){
-  for(let i=0;i<particles.length;i++){
-    particles[i].update();
-    particles[i].draw();
-    if(particles[i].life>particles[i].maxLife){
-      particles.splice(i,1);
-      i--;
-    }
-  }
-}
-
+// Animate
 function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  const h1 = document.querySelector('h1');
-  const rect = h1.getBoundingClientRect();
-  const baseX = rect.left + rect.width/2;
-  const baseY = canvas.height;
-  for(let i=0;i<5;i++){
-    particles.push(new Particle(baseX, baseY));
-  }
-  handleParticles();
+  letters.forEach((l,i)=>{
+    // generate particles per letter
+    for(let j=0;j<2;j++){
+      letterParticles[i].push(new Particle(l.x,l.y));
+    }
+    // update and draw
+    for(let k=0;k<letterParticles[i].length;k++){
+      letterParticles[i][k].update();
+      letterParticles[i][k].draw();
+      if(letterParticles[i][k].life>letterParticles[i][k].maxLife){
+        letterParticles[i].splice(k,1);
+        k--;
+      }
+    }
+  });
   requestAnimationFrame(animate);
 }
-
 animate();
 
-window.addEventListener('resize',()=>{
-  canvas.width=canvas.offsetWidth;
-  canvas.height=canvas.offsetHeight;
-});
+// --- بیک اینڈ انٹیگریشن لاجک (Download Logic) ---
 
-// Download buttons functionality (backend integration needed)
-document.getElementById('dlVideo').onclick = async () => {
-  const link = document.getElementById('ttlink').value;
-  document.getElementById('status').innerText = "Downloading video...";
-  // Backend fetch code here
-};
-document.getElementById('dlAudio').onclick = async () => {
-  const link = document.getElementById('ttlink').value;
-  document.getElementById('status').innerText = "Downloading MP3...";
-  // Backend fetch code here
-};
+// **اہم:** اگر آپ نے Node.js سرور چلایا ہے تو اسے http://localhost:3000/download رہنے دیں
+// **لیکن** جب آپ اسے لائیو deploy کر لیں (Render/Heroku پر)، تو اسے اپنے لائیو URL سے بدل دیں!
+const backendURL = "http://localhost:3000/download"; 
+
+async function handleDownload(type) {
+    const link = document.getElementById('ttlink').value;
+    const statusElement = document.getElementById('status');
+    
+    // لنک کی تصدیق
+    if (!link) {
+        statusElement.style.color = 'yellow';
+        statusElement.innerText = "⚠️ Please paste a link first.";
+        return;
+    }
+
+    statusElement.style.color = '#fff';
+    statusElement.innerText = `🔄 Preparing ${type} download... Please wait.`;
+
+    try {
+        const response = await fetch(backendURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ link: link, type: type })
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.downloadUrl) {
+            statusElement.style.color = '#00ff00';
+            statusElement.innerText = `✅ Success! Redirecting to download...`;
+            
+            // براؤزر کو ڈاؤن لوڈ URL پر ری ڈائریکٹ کریں
+            window.location.href = data.downloadUrl;
+        } else {
+            statusElement.style.color = '#ff4500';
+            statusElement.innerText = `❌ Error: ${data.error || 'Failed to get download link.'}`;
+        }
+    } catch (e) {
+        statusElement.style.color = '#ff4500';
+        statusElement.innerText = "❌ Connection error. Check the backend server (Node.js).";
+        console.error("Fetch Error:", e);
+    }
+}
+
+// ڈاؤن لوڈ بٹن ایونٹس
+document.getElementById('dlVideo').onclick = () => handleDownload('video');
+document.getElementById('dlAudio').onclick = () => handleDownload('audio');
+
 </script>
-
 </body>
 </html>
