@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BaLoch TikTok Downloader</title>
+<title>❤✨⃝⃪BaLoch TikTok Downloader ❤️</title>
 <style>
 body {
   margin:0;
@@ -13,21 +13,21 @@ body {
   text-align:center;
   color:#fff;
   overflow-x:hidden;
-  min-height: 100vh; /* Ensure body takes full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  justify-content: center;
+  align-items: center;
 }
 
-/* Updated Heading Style - No Fire Animation */
+/* Updated Heading Style */
 h1 {
-  font-size:48px; /* Slightly larger for prominence */
+  font-size:48px;
   font-weight:bold;
-  color:#06b6d4; /* A prominent blue-green color */
-  text-shadow: 0 0 10px rgba(6,182,212,0.8), 0 0 20px rgba(0,240,255,0.6); /* Enhanced glow */
-  letter-spacing:3px; /* More spacing for readability */
-  margin-top: 30px; /* Adjust top margin as needed */
+  color:#06b6d4;
+  text-shadow: 0 0 10px rgba(6,182,212,0.8), 0 0 20px rgba(0,240,255,0.6);
+  letter-spacing:3px;
+  margin-top: 30px;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -35,57 +35,60 @@ h1 {
 /* Profile Section */
 .profile-container {
   width:100%;
-  margin-top:20px; /* Reduced margin */
+  margin-top:20px;
   margin-bottom: 30px;
 }
 .profile-slide {
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:15px; /* Slightly more gap */
+  gap:15px;
 }
+
+/* PROFILE PHOTO - UPDATED TO 120PX SIZE */
 .profile-photo {
   width:120px;
   height:120px;
   border-radius:50%;
-  border:5px solid #00f0ff; /* Brighter border */
+  border:3px solid #06b6d4; /* Original border color */
   object-fit:cover;
-  box-shadow:0 0 15px rgba(0,240,255,0.8), 0 0 25px rgba(0,240,255,0.5); /* Enhanced glow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:0 0 12px rgba(6,182,212,0.6); /* Original shadow */
+  transition: transform 0.3s ease;
 }
 .profile-photo:hover{ 
-  transform: scale(1.1); 
-  box-shadow:0 0 20px rgba(0,240,255,1), 0 0 30px rgba(0,240,255,0.8);
+  transform: scale(1.05); /* Original hover effect */
+  /* Remove box-shadow update on hover to stick to basic style */
 }
+
 .profile-info{ 
   text-align:left;
-  background: rgba(0,0,0,0.4); /* Slightly dark background for readability */
+  background: rgba(0,0,0,0.4);
   padding: 10px 20px;
   border-radius: 10px;
   border: 1px solid rgba(0,240,255,0.3);
 }
 .profile-contact a{ 
-  color:#00f0ff; /* Brighter contact link */
+  color:#00f0ff;
   text-decoration:none; 
   font-weight:500;
   transition: color 0.3s ease;
 }
 .profile-contact a:hover{ 
-  color:#fff; /* White on hover */
+  color:#fff;
   text-shadow: 0 0 8px #00f0ff;
 }
 
 /* Rainbow Name - Enhanced */
 #rainbowName {
-  font-weight:bolder; /* Bolder font */
-  font-size:28px; /* Larger font size */
+  font-weight:bolder;
+  font-size:28px;
   display:inline-block;
-  letter-spacing:3px; /* Increased letter spacing */
-  background:linear-gradient(90deg,#FF6347,#FFD700,#ADFF2F,#00CED1,#8A2BE2,#FF1493); /* More vibrant rainbow */
+  letter-spacing:3px;
+  background:linear-gradient(90deg,#FF6347,#FFD700,#ADFF2F,#00CED1,#8A2BE2,#FF1493);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation: rainbowGlow 3s infinite alternate; /* New animation for a soft glow */
-  line-height: 1.2; /* Adjust line height for better display */
+  animation: rainbowGlow 3s infinite alternate;
+  line-height: 1.2;
 }
 @keyframes rainbowGlow{
   0%,100%{ filter:brightness(1); text-shadow:0 0 8px rgba(255,255,255,0.7), 0 0 15px rgba(255,255,255,0.3); }
@@ -95,22 +98,22 @@ h1 {
 /* Download Section */
 .download-container { 
   margin-top:30px;
-  background: rgba(0,0,0,0.5); /* Darker background for section */
+  background: rgba(0,0,0,0.5);
   padding: 30px 20px;
   border-radius: 15px;
   border: 1px solid rgba(6,182,212,0.5);
   box-shadow: 0 0 20px rgba(6,182,212,0.4);
-  max-width: 600px; /* Max width for better form presentation */
-  width: 90%; /* Responsive width */
+  max-width: 600px;
+  width: 90%;
 }
 input{ 
-  width:calc(100% - 24px); /* Full width minus padding */
-  padding:15px; /* Larger padding */
-  margin:15px 0; /* Larger margin */
-  border-radius:10px; /* More rounded corners */
+  width:calc(100% - 24px);
+  padding:15px;
+  margin:15px 0;
+  border-radius:10px;
   border:none;
-  background:#333; /* Darker input background */
-  color:#eee; /* Lighter text color */
+  background:#333;
+  color:#eee;
   font-size:16px;
   box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
 }
@@ -118,12 +121,12 @@ input::placeholder {
   color: #bbb;
 }
 button{ 
-  padding:15px 25px; /* Larger buttons */
+  padding:15px 25px;
   border:none; 
-  background:#00f0ff; /* Brighter button background */
+  background:#00f0ff;
   color:white; 
   cursor:pointer; 
-  border-radius:8px; /* More rounded buttons */
+  border-radius:8px;
   margin:10px; 
   font-weight:bold;
   font-size:18px;
@@ -131,23 +134,23 @@ button{
   box-shadow: 0 5px 15px rgba(0,240,255,0.4);
 }
 button:hover{ 
-  background:#06b6d4; /* Darker on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background:#06b6d4;
+  transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(6,182,212,0.6);
 }
 #status{ 
-  margin-top:20px; /* Increased margin */
+  margin-top:20px;
   font-weight:bold; 
   font-size:18px;
   color:#fff;
-  min-height: 25px; /* Ensure space for status messages */
+  min-height: 25px;
 }
 </style>
 </head>
 <body>
 
 <div class="fire-heading-container">
-  <h1>BaLoch TikTok Downloader</h1>
+  <h1>❤✨⃝⃪BaLoch TikTok Downloader ❤️</h1>
 </div>
 
 <div class="profile-container">
@@ -171,20 +174,14 @@ button:hover{
 </div>
 
 <script>
-// --- Old Fire Particle Animation (Canvas) JavaScript - REMOVED ---
-// All JavaScript related to 'fireCanvas' and particle animation has been removed for a cleaner look.
-
 // --- بیک اینڈ انٹیگریشن لاجک (Download Logic) ---
 
-// **اہم:** اگر آپ نے Node.js سرور چلایا ہے تو اسے http://localhost:3000/download رہنے دیں
-// **لیکن** جب آپ اسے لائیو deploy کر لیں (Render/Heroku پر)، تو اسے اپنے لائیو URL سے بدل دیں!
 const backendURL = "http://localhost:3000/download"; 
 
 async function handleDownload(type) {
     const link = document.getElementById('ttlink').value;
     const statusElement = document.getElementById('status');
     
-    // لنک کی تصدیق
     if (!link) {
         statusElement.style.color = 'yellow';
         statusElement.innerText = "⚠️ Please paste a link first.";
@@ -207,7 +204,6 @@ async function handleDownload(type) {
             statusElement.style.color = '#00ff00';
             statusElement.innerText = `✅ Success! Redirecting to download...`;
             
-            // براؤزر کو ڈاؤن لوڈ URL پر ری ڈائریکٹ کریں
             window.location.href = data.downloadUrl;
         } else {
             statusElement.style.color = '#ff4500';
@@ -220,7 +216,6 @@ async function handleDownload(type) {
     }
 }
 
-// ڈاؤن لوڈ بٹن ایونٹس
 document.getElementById('dlVideo').onclick = () => handleDownload('video');
 document.getElementById('dlAudio').onclick = () => handleDownload('audio');
 
