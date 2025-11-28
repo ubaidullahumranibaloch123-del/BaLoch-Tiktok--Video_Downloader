@@ -13,91 +13,140 @@ body {
   text-align:center;
   color:#fff;
   overflow-x:hidden;
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
-/* Fire Animated Heading Container */
-.fire-heading-container {
-  position: relative;
-  display: inline-block;
-  margin-top: 50px;
-}
-
-/* Heading */
+/* Updated Heading Style - No Fire Animation */
 h1 {
-  font-size:36px;
+  font-size:48px; /* Slightly larger for prominence */
   font-weight:bold;
-  color:#ff4500;
-  text-shadow:0 0 8px #ff4500,0 0 15px #ff8c00;
-  letter-spacing:2px;
-  position: relative;
-  z-index:1;
-  display: inline-block;
-}
-
-/* Fire canvas */
-#fireCanvas {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:150px;
-  pointer-events:none;
-  z-index:0;
+  color:#06b6d4; /* A prominent blue-green color */
+  text-shadow: 0 0 10px rgba(6,182,212,0.8), 0 0 20px rgba(0,240,255,0.6); /* Enhanced glow */
+  letter-spacing:3px; /* More spacing for readability */
+  margin-top: 30px; /* Adjust top margin as needed */
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 /* Profile Section */
 .profile-container {
   width:100%;
-  margin-top:40px;
+  margin-top:20px; /* Reduced margin */
+  margin-bottom: 30px;
 }
 .profile-slide {
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
+  gap:15px; /* Slightly more gap */
 }
 .profile-photo {
   width:120px;
   height:120px;
   border-radius:50%;
-  border:3px solid #06b6d4;
+  border:5px solid #00f0ff; /* Brighter border */
   object-fit:cover;
-  box-shadow:0 0 12px rgba(6,182,212,0.6);
-  transition: transform 0.3s ease;
+  box-shadow:0 0 15px rgba(0,240,255,0.8), 0 0 25px rgba(0,240,255,0.5); /* Enhanced glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.profile-photo:hover{ transform: scale(1.05);}
-.profile-info{ text-align:left;}
-.profile-contact a{ color:#06b6d4; text-decoration:none; font-weight:500;}
-.profile-contact a:hover{ color:#00f0ff;}
+.profile-photo:hover{ 
+  transform: scale(1.1); 
+  box-shadow:0 0 20px rgba(0,240,255,1), 0 0 30px rgba(0,240,255,0.8);
+}
+.profile-info{ 
+  text-align:left;
+  background: rgba(0,0,0,0.4); /* Slightly dark background for readability */
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,240,255,0.3);
+}
+.profile-contact a{ 
+  color:#00f0ff; /* Brighter contact link */
+  text-decoration:none; 
+  font-weight:500;
+  transition: color 0.3s ease;
+}
+.profile-contact a:hover{ 
+  color:#fff; /* White on hover */
+  text-shadow: 0 0 8px #00f0ff;
+}
 
-/* Rainbow Name */
+/* Rainbow Name - Enhanced */
 #rainbowName {
-  font-weight:bold;
-  font-size:24px;
+  font-weight:bolder; /* Bolder font */
+  font-size:28px; /* Larger font size */
   display:inline-block;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,#ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#8b00ff);
+  letter-spacing:3px; /* Increased letter spacing */
+  background:linear-gradient(90deg,#FF6347,#FFD700,#ADFF2F,#00CED1,#8A2BE2,#FF1493); /* More vibrant rainbow */
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation: rainbowFlicker 2s infinite linear;
+  animation: rainbowGlow 3s infinite alternate; /* New animation for a soft glow */
+  line-height: 1.2; /* Adjust line height for better display */
 }
-@keyframes rainbowFlicker{
-  0%,100%{ filter:brightness(1); text-shadow:0 0 6px #fff; }
-  50%{ filter:brightness(1.3); text-shadow:0 0 10px #fff; }
+@keyframes rainbowGlow{
+  0%,100%{ filter:brightness(1); text-shadow:0 0 8px rgba(255,255,255,0.7), 0 0 15px rgba(255,255,255,0.3); }
+  50%{ filter:brightness(1.2); text-shadow:0 0 12px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.5); }
 }
 
 /* Download Section */
-.download-container { margin-top:30px;}
-input{ width:80%; padding:12px; margin:10px 0; border-radius:8px; border:none;}
-button{ padding:12px 20px; border:none; background:#06b6d4; color:white; cursor:pointer; border-radius:5px; margin:5px; font-weight:bold;}
-button:hover{ background:#00f0ff;}
-#status{ margin-top:10px; font-weight:bold; color:#fff;}
+.download-container { 
+  margin-top:30px;
+  background: rgba(0,0,0,0.5); /* Darker background for section */
+  padding: 30px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(6,182,212,0.5);
+  box-shadow: 0 0 20px rgba(6,182,212,0.4);
+  max-width: 600px; /* Max width for better form presentation */
+  width: 90%; /* Responsive width */
+}
+input{ 
+  width:calc(100% - 24px); /* Full width minus padding */
+  padding:15px; /* Larger padding */
+  margin:15px 0; /* Larger margin */
+  border-radius:10px; /* More rounded corners */
+  border:none;
+  background:#333; /* Darker input background */
+  color:#eee; /* Lighter text color */
+  font-size:16px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
+}
+input::placeholder {
+  color: #bbb;
+}
+button{ 
+  padding:15px 25px; /* Larger buttons */
+  border:none; 
+  background:#00f0ff; /* Brighter button background */
+  color:white; 
+  cursor:pointer; 
+  border-radius:8px; /* More rounded buttons */
+  margin:10px; 
+  font-weight:bold;
+  font-size:18px;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,240,255,0.4);
+}
+button:hover{ 
+  background:#06b6d4; /* Darker on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 20px rgba(6,182,212,0.6);
+}
+#status{ 
+  margin-top:20px; /* Increased margin */
+  font-weight:bold; 
+  font-size:18px;
+  color:#fff;
+  min-height: 25px; /* Ensure space for status messages */
+}
 </style>
 </head>
 <body>
 
 <div class="fire-heading-container">
-  <canvas id="fireCanvas"></canvas>
   <h1>BaLoch TikTok Downloader</h1>
 </div>
 
@@ -122,81 +171,8 @@ button:hover{ background:#00f0ff;}
 </div>
 
 <script>
-// Fire Particle Animation per letter (Design/CSS Logic)
-const canvas=document.getElementById('fireCanvas');
-const ctx=canvas.getContext('2d');
-canvas.width=canvas.offsetWidth;
-canvas.height=canvas.offsetHeight;
-
-let particles=[];
-const h1=document.querySelector('h1');
-const letters=[];
-const letterParticles=[];
-
-// Split letters
-[...h1.textContent].forEach((char,i)=>{
-  letters.push({char, x:0, y:0});
-  letterParticles[i]=[];
-});
-
-function updateLetterPositions(){
-  const rects = h1.getClientRects();
-  let offsetX = h1.offsetLeft;
-  let offsetY = 0;
-  let x=offsetX;
-  let y=h1.offsetTop;
-  const spacing=20; // approximate
-  letters.forEach((l,i)=>{
-    l.x = x;
-    l.y = y + h1.offsetHeight;
-    x+=spacing;
-  });
-}
-updateLetterPositions();
-window.addEventListener('resize',updateLetterPositions);
-
-// Particle class
-function Particle(x,y){
-  this.x=x+Math.random()*8-4;
-  this.y=y;
-  this.size=Math.random()*4+2;
-  this.speedX=Math.random()*1.2-0.6;
-  this.speedY=Math.random()*-2-1;
-  this.color=`rgba(255,${Math.floor(Math.random()*150)},0,1)`;
-  this.life=0;
-  this.maxLife=Math.random()*40+30;
-}
-Particle.prototype.update=function(){
-  this.x+=this.speedX; this.y+=this.speedY; this.life++;
-}
-Particle.prototype.draw=function(){
-  ctx.beginPath();
-  ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-  ctx.fillStyle=this.color;
-  ctx.fill();
-}
-
-// Animate
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  letters.forEach((l,i)=>{
-    // generate particles per letter
-    for(let j=0;j<2;j++){
-      letterParticles[i].push(new Particle(l.x,l.y));
-    }
-    // update and draw
-    for(let k=0;k<letterParticles[i].length;k++){
-      letterParticles[i][k].update();
-      letterParticles[i][k].draw();
-      if(letterParticles[i][k].life>letterParticles[i][k].maxLife){
-        letterParticles[i].splice(k,1);
-        k--;
-      }
-    }
-  });
-  requestAnimationFrame(animate);
-}
-animate();
+// --- Old Fire Particle Animation (Canvas) JavaScript - REMOVED ---
+// All JavaScript related to 'fireCanvas' and particle animation has been removed for a cleaner look.
 
 // --- بیک اینڈ انٹیگریشن لاجک (Download Logic) ---
 
