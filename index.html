@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaLoch TikTok Video Downloader</title>
+  <style>
+    /* 🔥 Fire Animated Heading */
+    .fire-text {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff4500; /* base orange-red */
+      text-transform: uppercase;
+      animation: fire 1s infinite alternate;
+      margin-top: 20px;
+    }
+
+    @keyframes fire {
+      0% {
+        text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff6347, 0 0 20px #ff6347, 0 0 25px #ff8c00;
+        color: #ff4500;
+      }
+      25% {
+        text-shadow: 0 0 8px #ff6347, 0 0 12px #ff4500, 0 0 18px #ff8c00, 0 0 25px #ff4500, 0 0 30px #ff6347;
+        color: #ff6347;
+      }
+      50% {
+        text-shadow: 0 0 10px #ff8c00, 0 0 15px #ff6347, 0 0 20px #ff4500, 0 0 25px #ff8c00, 0 0 30px #ff4500;
+        color: #ff8c00;
+      }
+      75% {
+        text-shadow: 0 0 8px #ff4500, 0 0 12px #ff6347, 0 0 18px #ff8c00, 0 0 25px #ff4500, 0 0 30px #ff6347;
+        color: #ff6347;
+      }
+      100% {
+        text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff6347, 0 0 20px #ff6347, 0 0 25px #ff8c00;
+        color: #ff4500;
+      }
+    }
+
+    /* Body background */
+    body {
+      background-color: #111827; /* dark background for contrast */
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Profile Section */
+    .profile-container {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .profile-slide {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: slideLeftRight 8s infinite alternate ease-in-out;
+    }
+
+    .profile-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #06b6d4;
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(6,182,212,0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.1);
+    }
+
+    .profile-info {
+      color: #e6eef6;
+    }
+
+    .profile-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .profile-contact a {
+      color: #06b6d4;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .profile-contact a:hover {
+      color: #00f0ff;
+    }
+
+    @keyframes slideLeftRight {
+      0% { transform: translateX(0%); }
+      50% { transform: translateX(-20%); }
+      100% { transform: translateX(0%); }
+    }
+
+    /* Responsive for mobile */
+    @media(max-width: 500px){
+      .profile-slide {
+        flex-direction: column;
+        align-items: center;
+      }
+      .profile-photo {
+        width: 60px;
+        height: 60px;
+      }
+      .fire-text {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Website Title -->
+  <h1 class="fire-text">
+    BaLoch TikTok Video Downloader
+  </h1>
+
+  <!-- Profile Section -->
+  <div class="profile-container">
+    <div class="profile-slide">
+      <img src="https://i.postimg.cc/XZf3M6Sv/your-photo.jpg" alt="Ubaidullah Baloch" class="profile-photo"/>
+      <div class="profile-info">
+        <div class="profile-name">❤✨⃝⃪Ubaidullah⏤͟͟͞͞★͙≛͙⃝͙BaLoch ❤ (♫ ✨⃝⃪)</div>
+        <div class="profile-contact">
+          📱 <a href="https://wa.me/923048661181" target="_blank">03048661181</a> | 03702866763
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+  </html>
