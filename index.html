@@ -5,47 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BaLoch TikTok Video Downloader</title>
   <style>
-    /* 🔥 Fire Animated Heading */
-    .fire-text {
-      text-align: center;
-      font-family: 'Inter', sans-serif;
-      font-size: 36px;
-      font-weight: bold;
-      color: #ff4500; /* base orange-red */
-      text-transform: uppercase;
-      animation: fire 1s infinite alternate;
-      margin-top: 20px;
-    }
-
-    @keyframes fire {
-      0% {
-        text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff6347, 0 0 20px #ff6347, 0 0 25px #ff8c00;
-        color: #ff4500;
-      }
-      25% {
-        text-shadow: 0 0 8px #ff6347, 0 0 12px #ff4500, 0 0 18px #ff8c00, 0 0 25px #ff4500, 0 0 30px #ff6347;
-        color: #ff6347;
-      }
-      50% {
-        text-shadow: 0 0 10px #ff8c00, 0 0 15px #ff6347, 0 0 20px #ff4500, 0 0 25px #ff8c00, 0 0 30px #ff4500;
-        color: #ff8c00;
-      }
-      75% {
-        text-shadow: 0 0 8px #ff4500, 0 0 12px #ff6347, 0 0 18px #ff8c00, 0 0 25px #ff4500, 0 0 30px #ff6347;
-        color: #ff6347;
-      }
-      100% {
-        text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff6347, 0 0 20px #ff6347, 0 0 25px #ff8c00;
-        color: #ff4500;
-      }
-    }
-
-    /* Body background */
     body {
-      background-color: #111827; /* dark background for contrast */
       margin: 0;
-      padding: 0;
       font-family: 'Inter', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      /* Fullscreen background image */
+      background: url('https://i.postimg.cc/w36xpMj0/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #e6eef6;
+    }
+
+    /* Heading container */
+    .fire-heading-container {
+      position: relative;
+      display: inline-block;
+      margin-top: 50px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      color: #ff4500;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 2px;
+    }
+
+    #fireCanvas {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* Profile Section */
@@ -60,6 +54,7 @@
       align-items: center;
       gap: 12px;
       animation: slideLeftRight 8s infinite alternate ease-in-out;
+      justify-content: center;
     }
 
     .profile-photo {
@@ -72,18 +67,11 @@
       transition: transform 0.3s ease;
     }
 
-    .profile-photo:hover {
-      transform: scale(1.1);
-    }
+    .profile-photo:hover { transform: scale(1.1); }
 
-    .profile-info {
-      color: #e6eef6;
-    }
+    .profile-info { color: #e6eef6; }
 
-    .profile-name {
-      font-weight: bold;
-      font-size: 16px;
-    }
+    .profile-name { font-weight: bold; font-size: 16px; }
 
     .profile-contact a {
       color: #06b6d4;
@@ -92,9 +80,7 @@
       transition: color 0.2s;
     }
 
-    .profile-contact a:hover {
-      color: #00f0ff;
-    }
+    .profile-contact a:hover { color: #00f0ff; }
 
     @keyframes slideLeftRight {
       0% { transform: translateX(0%); }
@@ -102,35 +88,26 @@
       100% { transform: translateX(0%); }
     }
 
-    /* Responsive for mobile */
-    @media(max-width: 500px){
-      .profile-slide {
-        flex-direction: column;
-        align-items: center;
-      }
-      .profile-photo {
-        width: 60px;
-        height: 60px;
-      }
-      .fire-text {
-        font-size: 28px;
-      }
-    }
+    /* TikTok input/button */
+    #ttlink { width: 80%; padding: 10px; margin: 20px 0; border-radius: 8px; border:none; }
+    #dl { padding: 10px 20px; border:none; background:#06b6d4; color:white; cursor:pointer; border-radius:5px; }
+    #status { color:#fff; margin-top:10px; font-weight:bold; }
   </style>
 </head>
 <body>
 
-  <!-- Website Title -->
-  <h1 class="fire-text">
-    BaLoch TikTok Video Downloader
-  </h1>
+  <!-- Fire Animated Heading -->
+  <div class="fire-heading-container">
+    <canvas id="fireCanvas"></canvas>
+    <h1>BaLoch TikTok Video Downloader</h1>
+  </div>
 
   <!-- Profile Section -->
   <div class="profile-container">
     <div class="profile-slide">
-      <img src="https://i.postimg.cc/XZf3M6Sv/your-photo.jpg" alt="Ubaidullah Baloch" class="profile-photo"/>
+      <img src="https://i.postimg.cc/z3JXTj4k/profile.jpg" alt="Ubaidullah Baloch" class="profile-photo"/>
       <div class="profile-info">
-        <div class="profile-name">❤✨⃝⃪Ubaidullah⏤͟͟͞͞★͙≛͙⃝͙BaLoch ❤ (♫ ✨⃝⃪)</div>
+        <div class="profile-name">❤✨⃝⃪𝐔𝐁𝐀𝐈𝐃𝐔𝐋𝐋𝐀𝐇 ≛͙⃝͙𝐁𝐀𝐋𝐎𝐂𝐇 ❤</div>
         <div class="profile-contact">
           📱 <a href="https://wa.me/923048661181" target="_blank">03048661181</a> | 03702866763
         </div>
@@ -138,5 +115,74 @@
     </div>
   </div>
 
+  <!-- TikTok Video Input -->
+  <input type="text" id="ttlink" placeholder="Paste TikTok video link here">
+  <button id="dl">Download Video</button>
+  <div id="status"></div>
+
+  <!-- Fire animation JS -->
+  <script>
+    const canvas = document.getElementById('fireCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    let particles = [];
+
+    function Particle(x, y) {
+      this.x = x + (Math.random()*50 - 25);
+      this.y = y;
+      this.size = Math.random()*4 + 2;
+      this.speedX = Math.random()*2 - 1;
+      this.speedY = Math.random()*-3 - 1;
+      this.color = 'rgba(255,' + Math.floor(Math.random()*150) + ',0,1)';
+      this.life = 0;
+      this.maxLife = Math.random()*30 + 30;
+    }
+
+    Particle.prototype.update = function() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.life++;
+    }
+
+    Particle.prototype.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+
+    function handleParticles() {
+      for(let i=0;i<particles.length;i++){
+        particles[i].update();
+        particles[i].draw();
+        if(particles[i].life > particles[i].maxLife) {
+          particles.splice(i,1);
+          i--;
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      const x = canvas.width/2;
+      const y = canvas.height;
+      for(let i=0;i<3;i++){
+        particles.push(new Particle(x, y));
+      }
+      handleParticles();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Window resize
+    window.addEventListener('resize', () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    });
+  </script>
+
 </body>
-  </html>
+</html>
