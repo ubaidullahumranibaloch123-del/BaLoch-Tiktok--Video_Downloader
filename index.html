@@ -2,104 +2,170 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>BaLoch Downloader</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BaLoch Downloader🔥</title>
 
 <style>
-/* ================= BACKGROUND ================= */
+/* ======== GLOBAL ======== */
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background:url('https://i.postimg.cc/w36xpMj0/background.jpg') center/cover fixed no-repeat;
-  filter:brightness(1.25) contrast(1.05); /* FACE CLEAR */
+  filter:brightness(1.18) contrast(1.1);
   color:#fff;
-  text-align:center;
-  overflow-x:hidden;
   min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
 }
 
-/* ================= FIRE TITLE ================= */
+/* ======== FIRE NAME ======== */
 .fire-title{
   font-size:56px;
-  text-transform:uppercase;
   font-weight:900;
+  text-transform:uppercase;
   margin-top:40px;
-  letter-spacing:4px;
-  background:linear-gradient(#ffdd00,#ff4500);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  position:relative;
-  animation:fireGlow 4s infinite ease-in-out;
-}
-@keyframes fireGlow{
-  0%{ text-shadow:0 0 10px #ff3300; }
-  50%{ text-shadow:0 0 40px #ffaa00; }
-  100%{ text-shadow:0 0 10px #ff3300; }
+  color:#ff4500;
+  text-shadow: 0 0 40px rgba(255,80,0,0.8);
+  animation: flame 2s infinite ease-in-out;
 }
 
-/* 🔥 REAL FIRE GIF SHADOW */
-.fire-title::after{
-  content:"";
+@keyframes flame{
+  0%{text-shadow:0 0 25px rgba(255,60,0,.6);}
+  50%{text-shadow:0 0 60px rgba(255,120,0,1);}
+  100%{text-shadow:0 0 25px rgba(255,60,0,.6);}
+}
+
+/* 🔥 Falling fire effect */
+.fire-bg{
   position:absolute;
-  left:50%;
-  top:100%;
-  transform:translateX(-50%);
-  width:220px;
-  height:220px;
-  background:url('https://i.gifer.com/7efs.gif');
-  background-size:cover;
-  opacity:.9;
+  top:0;left:0;right:0;bottom:0;
   pointer-events:none;
+  background:url('https://i.imgur.com/rL8aH8n.gif');
+  opacity:0.35;
+  background-size:cover;
+  z-index:-1;
 }
 
-/* ================= PROFILE ================= */
-.profile-container{
-  margin-top:30px;
-  display:flex;
-  justify-content:center;
+/* ======== SUB NAME ======== */
+.sub-title{
+  font-size:22px;
+  text-shadow:0 0 15px #00fff3;
+  animation: neon 1.5s infinite;
+}
+@keyframes neon{
+  0%{opacity:.8;}
+  50%{opacity:1;}
+  100%{opacity:.8;}
+}
+
+/* ======== CARD ======== */
+.box{
+  margin-top:270px;
+  padding:25px;
+  width:90%;
+  max-width:500px;
+  border-radius:16px;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(6px);
+  box-shadow:0 0 25px rgba(0,0,0,.4);
+}
+
+/* inputs */
+input{
   width:100%;
-}
-.profile-box{
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
-
-.profile-photo{
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  border:3px solid #06b6d4;
-  box-shadow:0 0 18px rgba(0,240,255,.7);
-  object-fit:cover;
+  padding:14px;
+  border-radius:10px;
+  outline:none;
+  border:0;
+  font-size:16px;
+  background:rgba(255,255,255,.15);
+  color:#fff;
 }
 
-/* ===== RAINBOW NAME ===== */
-#rainbowName{
-  font-size:28px;
-  font-weight:800;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,#ff0084,#ffae00,#34ffea,#8A2BE2,#ff1493);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:glowAnime 4s infinite linear;
-}
-@keyframes glowAnime{
-  0%{filter:brightness(1);}
-  50%{filter:brightness(1.5);}
-  100%{filter:brightness(1);}
-}
-
-/* ===== CONTACT ===== */
-.profile-contact{
-  margin-top:4px;
+/* button */
+button{
+  margin-top:14px;
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:0;
+  background:#ff4500;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
   font-size:17px;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
+  box-shadow:0 0 15px rgba(255,80,0,.6);
+  transition:.25s;
 }
-.profile-contact a{
-  padding
+button:hover{
+  background:#ff5e00;
+  transform:scale(1.04);
+}
+
+/* WhatsApp numbers */
+.whats{
+  margin-top:15px;
+  font-size:15px;
+  letter-spacing:1px;
+  opacity:.9;
+}
+.whats span{
+  cursor:pointer;
+  color:#00ffea;
+  text-shadow:0 0 10px #00fff3;
+}
+
+.result{
+  margin-top:12px;
+  font-size:15px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="fire-bg"></div>
+
+<h1 class="fire-title">BaLoch Downloader 🔥</h1>
+<div class="sub-title">Ubaidullah BaLoch</div>
+
+<div class="box">
+  <input type="text" id="url" placeholder="Paste video link here...">
+  <button onclick="downloadVideo()">Download</button>
+  <div class="result" id="res"></div>
+
+  <div class="whats">
+    WhatsApp: <span>03048661181</span> | <span>03702866763</span>
+  </div>
+</div>
+
+<script>
+async function downloadVideo(){
+    let link = document.getElementById('url').value.trim();
+    const res = document.getElementById('res');
+
+    if(!link){
+        res.innerHTML="⚠️ Please paste a valid URL!";
+        return;
+    }
+    
+    res.innerHTML="⏳ Processing...";
+    
+    try{
+        let req = await fetch(`https://api.snapinsta.app/api?url=${encodeURIComponent(link)}`);
+        let data = await req.json();
+        
+        if(data?.download_url){
+            res.innerHTML = `<a href="${data.download_url}" target="_blank" style="color:#00ffea;">👉 Download Ready — Click Here</a>`;
+        }else{
+            res.innerHTML="❌ Error — Invalid URL or Unsupported Platform.";
+        }
+    }catch(e){
+        res.innerHTML="🚨 Server Error, Try Again!";
+    }
+}
+</script>
+
+</body>
+</html>
