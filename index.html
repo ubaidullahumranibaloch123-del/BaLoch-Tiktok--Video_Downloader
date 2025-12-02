@@ -2,170 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BaLoch Downloader</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ubaidullah Photography</title>
 
 <style>
-/* ======== GLOBAL ======== */
-body{
-  margin:0;
-  font-family: 'Poppins', sans-serif;
-  background:url('https://i.postimg.cc/w36xpMj0/background.jpg') center/cover fixed no-repeat;
-  filter:brightness(1.18) contrast(1.1);
-  color:#fff;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
+    :root {
+        --bg: #0a0a0a;
+        --text: #ffffff;
+        --card: #121212;
+        --accent: #06b6d4;
+    }
+    body.light {
+        --bg: #f5f5f5;
+        --text: #111;
+        --card: #ffffff;
+        --accent: #0077ff;
+    }
 
-/* ======== FIRE NAME ======== */
-.fire-title{
-  font-size:56px;
-  font-weight:900;
-  text-transform:uppercase;
-  margin-top:40px;
-  color:#ff4500;
-  text-shadow: 0 0 40px rgba(255,80,0,0.8);
-  animation: flame 2s infinite ease-in-out;
-}
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        transition: .3s;
+    }
 
-@keyframes flame{
-  0%{text-shadow:0 0 25px rgba(255,60,0,.6);}
-  50%{text-shadow:0 0 60px rgba(255,120,0,1);}
-  100%{text-shadow:0 0 25px rgba(255,60,0,.6);}
-}
+    .container {
+        padding: 20px;
+        max-width: 780px;
+        margin: auto;
+        text-align: center;
+    }
 
-/* 🔥 Falling fire effect */
-.fire-bg{
-  position:absolute;
-  top:0;left:0;right:0;bottom:0;
-  pointer-events:none;
-  background:url('https://i.imgur.com/rL8aH8n.gif');
-  opacity:0.35;
-  background-size:cover;
-  z-index:-1;
-}
+    img.hero {
+        width: 100%;
+        border-radius: 14px;
+        margin-bottom: 18px;
+        box-shadow: 0px 0px 25px rgba(0,0,0,.4);
+    }
 
-/* ======== SUB NAME ======== */
-.sub-title{
-  font-size:22px;
-  text-shadow:0 0 15px #00fff3;
-  animation: neon 1.5s infinite;
-}
-@keyframes neon{
-  0%{opacity:.8;}
-  50%{opacity:1;}
-  100%{opacity:.8;}
-}
+    h1 {
+        font-size: 30px;
+        margin-bottom: 4px;
+    }
 
-/* ======== CARD ======== */
-.box{
-  margin-top:270px;
-  padding:25px;
-  width:90%;
-  max-width:500px;
-  border-radius:16px;
-  background:rgba(0,0,0,.35);
-  backdrop-filter:blur(6px);
-  box-shadow:0 0 25px rgba(0,0,0,.4);
-}
+    .tagline {
+        color: var(--accent);
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
 
-/* inputs */
-input{
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  outline:none;
-  border:0;
-  font-size:16px;
-  background:rgba(255,255,255,.15);
-  color:#fff;
-}
+    button.theme {
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 20px;
+        background: var(--card);
+        color: var(--text);
+        font-weight: 600;
+    }
 
-/* button */
-button{
-  margin-top:14px;
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  border:0;
-  background:#ff4500;
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
-  font-size:17px;
-  box-shadow:0 0 15px rgba(255,80,0,.6);
-  transition:.25s;
-}
-button:hover{
-  background:#ff5e00;
-  transform:scale(1.04);
-}
+    .contact-box {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 0;
+    }
 
-/* WhatsApp numbers */
-.whats{
-  margin-top:15px;
-  font-size:15px;
-  letter-spacing:1px;
-  opacity:.9;
-}
-.whats span{
-  cursor:pointer;
-  color:#00ffea;
-  text-shadow:0 0 10px #00fff3;
-}
+    .whatsapp-btn {
+        background: var(--accent);
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        display: block;
+    }
 
-.result{
-  margin-top:12px;
-  font-size:15px;
-  text-align:center;
-}
+    .card {
+        background: var(--card);
+        padding: 16px;
+        border-radius: 10px;
+        margin-top: 18px;
+        text-align: left;
+    }
+
+    textarea {
+        width: 100%;
+        height: 180px;
+        border-radius: 10px;
+        border: none;
+        padding: 10px;
+        background: #222;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    button.copy {
+        margin-top: 8px;
+        padding: 10px;
+        width: 100%;
+        background: var(--accent);
+        border: none;
+        color: #fff;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    footer {
+        margin-top: 30px;
+        font-size: 12px;
+        opacity: .6;
+    }
 </style>
 </head>
+
 <body>
 
-<div class="fire-bg"></div>
-
-<h1 class="fire-title">BaLoch Downloader 🔥</h1>
-<div class="sub-title">Ubaidullah BaLoch</div>
-
-<div class="box">
-  <input type="text" id="url" placeholder="Paste video link here...">
-  <button onclick="downloadVideo()">Download</button>
-  <div class="result" id="res"></div>
-
-  <div class="whats">
-    WhatsApp: <span>03048661181</span> | <span>03702866763</span>
-  </div>
-</div>
-
-<script>
-async function downloadVideo(){
-    let link = document.getElementById('url').value.trim();
-    const res = document.getElementById('res');
-
-    if(!link){
-        res.innerHTML="⚠️ Please paste a valid URL!";
-        return;
-    }
-    
-    res.innerHTML="⏳ Processing...";
-    
-    try{
-        let req = await fetch(`https://api.snapinsta.app/api?url=${encodeURIComponent(link)}`);
-        let data = await req.json();
-        
-        if(data?.download_url){
-            res.innerHTML = `<a href="${data.download_url}" target="_blank" style="color:#00ffea;">👉 Download Ready — Click Here</a>`;
-        }else{
-            res.innerHTML="❌ Error — Invalid URL or Unsupported Platform.";
-        }
-    }catch(e){
-        res.innerHTML="🚨 Server Error, Try Again!";
-    }
-}
-</script>
-
-</body>
-</html>
+<div class="container">
