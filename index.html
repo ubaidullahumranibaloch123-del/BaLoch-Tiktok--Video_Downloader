@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>✨⃝⃪𝐁𝐀𝐋𝐎𝐂𝐇⟶Downloader❤</title>
+<title>BaLoch TikTok Downloader</title>
 <style>
 body {
   margin:0;
@@ -15,99 +15,101 @@ body {
   overflow-x:hidden;
 }
 
-/* Fire Animated Heading Container */
-.fire-heading-container {
-  position: relative;
-  display: inline-block;
-  margin-top: 50px;
-}
-
-/* Heading */
+/* Title */
 h1 {
-  font-size:36px;
+  margin-top:40px;
+  font-size:32px;
   font-weight:bold;
-  color:#ff4500;
-  text-shadow:0 0 8px #ff4500,0 0 15px #ff8c00;
-  letter-spacing:2px;
-  position: relative;
-  z-index:1;
-  display: inline-block;
-}
-
-/* Fire canvas */
-#fireCanvas {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:150px;
-  pointer-events:none;
-  z-index:0;
+  color:#ff8800;
+  text-shadow:0 0 8px #ff8800,0 0 12px #ff6600;
 }
 
 /* Profile Section */
 .profile-container {
   width:100%;
-  margin-top:40px;
+  margin-top:30px;
 }
 .profile-slide {
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
+  gap:16px;
 }
 .profile-photo {
-  width:120px;
-  height:120px;
+  width:160px;
+  height:160px;
   border-radius:50%;
   border:3px solid #06b6d4;
   object-fit:cover;
-  box-shadow:0 0 12px rgba(6,182,212,0.6);
-  transition: transform 0.3s ease;
+  box-shadow:0 0 15px rgba(6,182,212,0.8);
 }
-.profile-photo:hover{ transform: scale(1.05);}
-.profile-info{ text-align:left;}
-.profile-contact a{ color:#06b6d4; text-decoration:none; font-weight:500;}
-.profile-contact a:hover{ color:#00f0ff;}
 
-/* Rainbow Name */
+/* Name */
 #rainbowName {
   font-weight:bold;
-  font-size:24px;
-  display:inline-block;
-  letter-spacing:2px;
+  font-size:18px;
   background:linear-gradient(90deg,#ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#8b00ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation: rainbowFlicker 2s infinite linear;
-}
-@keyframes rainbowFlicker{
-  0%,100%{ filter:brightness(1); text-shadow:0 0 6px #fff; }
-  50%{ filter:brightness(1.3); text-shadow:0 0 10px #fff; }
 }
 
-/* Download Section */
-.download-container { margin-top:30px;}
-input{ width:80%; padding:12px; margin:10px 0; border-radius:8px; border:none;}
-button{ padding:12px 20px; border:none; background:#06b6d4; color:white; cursor:pointer; border-radius:5px; margin:5px; font-weight:bold;}
-button:hover{ background:#00f0ff;}
+#rainbowName2 {
+  margin-top:4px;
+  font-size:18px;
+  font-weight:600;
+  color:#06b6d4;
+}
+
+/* Contact */
+.profile-contact a{
+  color:#00eaff;
+  text-decoration:none;
+  font-weight:bold;
+}
+.profile-contact a:hover{
+  color:#ffffff;
+}
+
+/* Download */
+.download-container {
+  margin-top:30px;
+}
+input{
+  width:80%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:none;
+}
+button{
+  padding:12px 20px;
+  border:none;
+  background:#06b6d4;
+  color:white;
+  cursor:pointer;
+  border-radius:5px;
+  margin:5px;
+  font-weight:bold;
+}
+button:hover{
+  background:#00f0ff;
+}
 #status{ margin-top:10px; font-weight:bold; color:#fff;}
 </style>
 </head>
 <body>
 
-<!-- Fire Heading -->
-<div class="fire-container">
-  <canvas id="fireCanvas"></canvas>
-  <h1>✨⃝⃪𝐁𝐀𝐋𝐎𝐂𝐇⟶Downloader❤</h1>
-</div>
+<!-- Heading -->
+<h1>BaLoch TikTok Downloader</h1>
 
 <!-- Profile -->
 <div class="profile-container">
   <div class="profile-slide">
     <img src="https://i.postimg.cc/z3JXTj4k/profile.jpg" class="profile-photo"/>
+    
     <div class="profile-info">
-      <div id="rainbowName">❤✨⃝⃪𝐔𝐁𝐀𝐈𝐃𝐔𝐋𝐋𝐀𝐇✨⃝⃪❤</div>
+      <div id="rainbowName">❤✨⃝⃪𝐔𝐁𝐀𝐈𝐃𝐔𝐋𝐋𝐀𝐇⟶𝐁𝐀𝐋𝐎𝐂𝐇 ❤</div>
+      <div id="rainbowName2">✨⃝⃪𝐁𝐀𝐋𝐎𝐂𝐇 Downloader✨⃝⃪</div>
       <div class="profile-contact">
         📱 <a href="https://wa.me/923048661181" target="_blank">03048661181</a> | 03702866763
       </div>
@@ -115,7 +117,7 @@ button:hover{ background:#00f0ff;}
   </div>
 </div>
 
-<!-- Download Section -->
+<!-- Downloader -->
 <div class="download-container">
   <input type="text" id="ttlink" placeholder="Paste TikTok video or audio link here">
   <br>
@@ -125,92 +127,14 @@ button:hover{ background:#00f0ff;}
 </div>
 
 <script>
-// Fire Particle Animation per letter
-const canvas=document.getElementById('fireCanvas');
-const ctx=canvas.getContext('2d');
-canvas.width=canvas.offsetWidth;
-canvas.height=canvas.offsetHeight;
-
-let particles=[];
-const h1=document.querySelector('h1');
-const letters=[];
-const letterParticles=[];
-
-// Split letters
-[...h1.textContent].forEach((char,i)=>{
-  letters.push({char, x:0, y:0});
-  letterParticles[i]=[];
-});
-
-function updateLetterPositions(){
-  const rects = h1.getClientRects();
-  let offsetX = h1.offsetLeft;
-  let offsetY = 0;
-  let x=offsetX;
-  let y=h1.offsetTop;
-  const spacing=20; // approximate
-  letters.forEach((l,i)=>{
-    l.x = x;
-    l.y = y + h1.offsetHeight;
-    x+=spacing;
-  });
-}
-updateLetterPositions();
-window.addEventListener('resize',updateLetterPositions);
-
-// Particle class
-function Particle(x,y){
-  this.x=x+Math.random()*8-4;
-  this.y=y;
-  this.size=Math.random()*4+2;
-  this.speedX=Math.random()*1.2-0.6;
-  this.speedY=Math.random()*-2-1;
-  this.color=`rgba(255,${Math.floor(Math.random()*150)},0,1)`;
-  this.life=0;
-  this.maxLife=Math.random()*40+30;
-}
-Particle.prototype.update=function(){
-  this.x+=this.speedX; this.y+=this.speedY; this.life++;
-}
-Particle.prototype.draw=function(){
-  ctx.beginPath();
-  ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-  ctx.fillStyle=this.color;
-  ctx.fill();
-}
-
-// Animate
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  letters.forEach((l,i)=>{
-    // generate particles per letter
-    for(let j=0;j<2;j++){
-      letterParticles[i].push(new Particle(l.x,l.y));
-    }
-    // update and draw
-    for(let k=0;k<letterParticles[i].length;k++){
-      letterParticles[i][k].update();
-      letterParticles[i][k].draw();
-      if(letterParticles[i][k].life>letterParticles[i][k].maxLife){
-        letterParticles[i].splice(k,1);
-        k--;
-      }
-    }
-  });
-  requestAnimationFrame(animate);
-}
-animate();
-
-// Download buttons (backend integration)
-const backendURL="http://localhost:3000/download"; // Replace with live backend
-document.getElementById('dlVideo').onclick=async()=>{
-  const link=document.getElementById('ttlink').value;
-  document.getElementById('status').innerText="Downloading video...";
+// Next time backend API paste here
+document.getElementById('dlVideo').onclick=()=>{
+  document.getElementById('status').innerText="Video downloading...";
 };
-document.getElementById('dlAudio').onclick=async()=>{
-  const link=document.getElementById('ttlink').value;
-  document.getElementById('status').innerText="Downloading MP3...";
+document.getElementById('dlAudio').onclick=()=>{
+  document.getElementById('status').innerText="MP3 downloading...";
 };
 </script>
+
 </body>
 </html>
