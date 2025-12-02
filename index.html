@@ -15,7 +15,7 @@ body {
   overflow-x:hidden;
 }
 
-/* Title */
+/* Heading */
 h1 {
   margin-top:40px;
   font-size:32px;
@@ -33,21 +33,19 @@ h1 {
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-direction: column;
   gap:16px;
   position: relative;
 }
 
-/* Animated Glow Circle */
+/* Profile Photo with Animated Glow */
 .profile-photo-wrapper {
   position: relative;
-  width:180px;
-  height:180px;
+  width:160px;
+  height:160px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-bottom:10px;
 }
 .profile-photo-wrapper::before {
   content:"";
@@ -63,7 +61,6 @@ h1 {
   width:160px;
   height:160px;
   border-radius:50%;
-  border:5px solid #000;
   object-fit:cover;
   position: relative;
   z-index:1;
@@ -94,53 +91,33 @@ h1 {
   color:#ffffff;
 }
 
-/* Download */
+/* Download Section */
 .download-container {
   margin-top:30px;
 }
-
-/* Glass Buttons */
 input{
   width:80%;
   padding:12px;
   margin:10px 0;
-  border-radius:12px;
+  border-radius:8px;
   border:none;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.1);
-  color:#fff;
-  font-weight:bold;
-  outline:none;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
 }
-
 button{
   padding:12px 20px;
   border:none;
-  background: rgba(255,255,255,0.1);
+  background:#06b6d4;
   color:white;
   cursor:pointer;
-  border-radius:12px;
+  border-radius:5px;
   margin:5px;
   font-weight:bold;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transition: all 0.3s ease;
 }
 button:hover{
-  background: rgba(255,255,255,0.25);
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #06b6d4, 0 0 40px #00f0ff;
+  background:#00f0ff;
 }
+#status{ margin-top:10px; font-weight:bold; color:#fff;}
 
-#status{ 
-  margin-top:10px; 
-  font-weight:bold; 
-  color:#fff;
-  text-shadow:0 0 5px #06b6d4;
-}
-
-/* Animate Conic Gradient */
+/* Animation for Glow */
 @keyframes rotate {
   0% { transform: rotate(0deg);}
   100% { transform: rotate(360deg);}
@@ -158,9 +135,11 @@ button:hover{
     <div class="profile-photo-wrapper">
       <img src="https://i.postimg.cc/s1NJ84Jf/profile.jpg" class="profile-photo"/>
     </div>
-    <div id="rainbowName">❤✨⃝⃪𝐔𝐁𝐀𝐈𝐃𝐔𝐋𝐋𝐀𝐇⟶𝐁𝐀𝐋𝐎𝐂𝐇 ❤</div>
-    <div class="profile-contact">
-      📱 <a href="https://wa.me/923048661181" target="_blank">03048661181</a> | 03702866763
+    <div class="profile-info">
+      <div id="rainbowName">❤✨⃝⃪𝐔𝐁𝐀𝐈𝐃𝐔𝐋𝐋𝐀𝐇⟶𝐁𝐀𝐋𝐎𝐂𝐇 ❤</div>
+      <div class="profile-contact">
+        📱 <a href="https://wa.me/923048661181" target="_blank">03048661181</a> | 03702866763
+      </div>
     </div>
   </div>
 </div>
@@ -170,19 +149,4 @@ button:hover{
   <input type="text" id="ttlink" placeholder="Paste TikTok video or audio link here">
   <br>
   <button id="dlVideo">Download Video</button>
-  <button id="dlAudio">Download MP3</button>
-  <div id="status"></div>
-</div>
-
-<script>
-// Next time backend API paste here
-document.getElementById('dlVideo').onclick=()=>{
-  document.getElementById('status').innerText="Video downloading...";
-};
-document.getElementById('dlAudio').onclick=()=>{
-  document.getElementById('status').innerText="MP3 downloading...";
-};
-</script>
-
-</body>
-</html>
+  <button id="
