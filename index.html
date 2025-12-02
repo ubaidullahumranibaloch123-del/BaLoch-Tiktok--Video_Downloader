@@ -3,200 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BaLoch TikTok Downloader</title>
+<title>BaLoch Downloader🔥</title>
 
 <style>
-body {
+/* ================= BACKGROUND ================= */
+body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:url('https://i.postimg.cc/w36xpMj0/background.jpg') no-repeat center center fixed;
-  background-size:cover;
-  text-align:center;
+  background:url('https://i.postimg.cc/w36xpMj0/background.jpg') center/cover fixed no-repeat;
+  filter:brightness(1.25) contrast(1.05); /* FACE CLEAR */
   color:#fff;
+  text-align:center;
   overflow-x:hidden;
   min-height:100vh;
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;
   align-items:center;
 }
 
-/* =====🔥 FIRE NAME ===== */
-.fire-title {
-  font-size:50px;
-  font-weight:900;
-  color:#ffae00;
+/* ================= FIRE TITLE ================= */
+.fire-title{
+  font-size:56px;
   text-transform:uppercase;
-  letter-spacing:4px;
+  font-weight:900;
   margin-top:40px;
-  background:linear-gradient(#ffae00,#ff4500);
+  letter-spacing:4px;
+  background:linear-gradient(#ffdd00,#ff4500);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   position:relative;
-  animation:pulseGlow 3s infinite ease-in-out;
+  animation:fireGlow 4s infinite ease-in-out;
 }
-@keyframes pulseGlow {
-  0% { text-shadow:0 0 10px #ff4500; }
-  50%{ text-shadow:0 0 35px #ffa200; }
-  100%{ text-shadow:0 0 10px #ff4500; }
+@keyframes fireGlow{
+  0%{ text-shadow:0 0 10px #ff3300; }
+  50%{ text-shadow:0 0 40px #ffaa00; }
+  100%{ text-shadow:0 0 10px #ff3300; }
 }
-.fire-title::after {
+
+/* 🔥 REAL FIRE GIF SHADOW */
+.fire-title::after{
   content:"";
   position:absolute;
   left:50%;
   top:100%;
-  width:180px;
-  height:180px;
   transform:translateX(-50%);
+  width:220px;
+  height:220px;
   background:url('https://i.gifer.com/7efs.gif');
   background-size:cover;
-  opacity:0.9;
+  opacity:.9;
   pointer-events:none;
 }
 
-/* =====✨ PROFILE ===== */
-#rainbowName {
-  font-size:26px;
-  font-weight:900;
-  margin-top:5px;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,#ff0084,#ffae00,#23ffe8,#8A2BE2);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:glowMove 4s infinite linear;
-}
-@keyframes glowMove {
-  0%{filter:brightness(1);}
-  50%{filter:brightness(1.4);}
-  100%{filter:brightness(1);}
-}
+/* ================= PROFILE ================= */
 .profile-container{
-  margin-top:15px;
-  width:100%;
+  margin-top:30px;
   display:flex;
   justify-content:center;
+  width:100%;
 }
-.profile-slide{
+.profile-box{
   display:flex;
   gap:15px;
+  align-items:center;
 }
+
 .profile-photo{
-  width:120px;
-  height:120px;
+  width:130px;
+  height:130px;
   border-radius:50%;
   border:3px solid #06b6d4;
-  box-shadow:0 0 15px #00f0ff;
+  box-shadow:0 0 18px rgba(0,240,255,.7);
   object-fit:cover;
 }
 
-/* 📱 PHONE NUMBERS */
-.profile-contact a{
-  color:#00f0ff;
-  padding:4px 10px;
-  border-radius:5px;
-  text-decoration:none;
-  box-shadow:0 0 8px #00f0ff;
+/* ===== RAINBOW NAME ===== */
+#rainbowName{
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,#ff0084,#ffae00,#34ffea,#8A2BE2,#ff1493);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:glowAnime 4s infinite linear;
 }
-.profile-contact a:hover{
-  color:white;
-  text-shadow:0 0 9px #00f0ff;
+@keyframes glowAnime{
+  0%{filter:brightness(1);}
+  50%{filter:brightness(1.5);}
+  100%{filter:brightness(1);}
 }
 
-/* DOWNLOAD BOX */
-.download-container{
-  margin-top:120px;
-  background:rgba(0,0,0,.55);
-  padding:35px 20px;
-  border-radius:15px;
-  border:1px solid rgba(6,182,212,.6);
-  box-shadow:0 0 25px rgba(6,182,212,.4);
-  max-width:620px;
-  width:90%;
-}
-input{
-  width:calc(100% - 24px);
-  padding:15px;
-  border:none;
-  border-radius:10px;
-  background:#202020;
-  color:#eee;
+/* ===== CONTACT ===== */
+.profile-contact{
+  margin-top:4px;
   font-size:17px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
 }
-button{
-  padding:14px 28px;
-  border:none;
-  border-radius:8px;
-  font-size:18px;
-  font-weight:bold;
-  background:#00f0ff;
-  margin:7px;
-  cursor:pointer;
-}
-button:hover{ background:#06b6d4; }
-#status{ margin-top:17px; font-size:18px; }
-</style>
-</head>
-<body>
-
-<h1 class="fire-title">BaLoch Downloader</h1>
-
-<div class="profile-container">
-  <div class="profile-slide">
-    <img src="https://i.postimg.cc/z3JXTj4k/profile.jpg" class="profile-photo">
-    <div>
-      <div id="rainbowName">❤✨⃝⃪ UBAIDULLAH — BALOCH ❤</div>
-      <div class="profile-contact">
-        📱 <a href="https://wa.me/923048661181">03048661181</a> |
-        <a href="https://wa.me/923702866763">03702866763</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="download-container">
-  <input id="ttlink" placeholder="Paste TikTok link">
-  <button id="dlVideo">Download Video</button>
-  <button id="dlAudio">Download MP3</button>
-  <div id="status"></div>
-</div>
-
-<script>
-const backendURL="https://your-backend.vercel.app/api/download";
-
-async function handleDownload(type){
-  let link=document.getElementById('ttlink').value;
-  const status=document.getElementById('status');
-
-  if(!link){
-    status.innerText="⚠️ Paste the link";
-    status.style.color="yellow";
-    return;
-  }
-  status.innerText="⏳ Preparing...";
-  status.style.color="#fff";
-
-  try{
-    const res=await fetch(backendURL,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({link,type})
-    });
-    const data=await res.json();
-
-    if(data.url){
-      status.innerText="✔️ Ready — downloading...";
-      window.location.href=data.url;
-    } else {
-      status.innerText="❌ Error: "+data.error;
-      status.style.color="red";
-    }
-  }catch(e){
-    status.innerText="❌ Backend not found";
-  }
-}
-dlVideo.onclick=()=>handleDownload('video');
-dlAudio.onclick=()=>handleDownload('audio');
-</script>
-
-</body>
-</html>
+.profile-contact a{
+  padding
